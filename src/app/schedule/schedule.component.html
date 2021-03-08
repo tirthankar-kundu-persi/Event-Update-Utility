@@ -1,0 +1,113 @@
+<p>schedule works!</p>
+
+<!-- <div class="container">
+  <form>
+    <div class="form-group row justify-content-center">
+      <label for="evnviornment" class="col-sm-2 col-form-label"
+        >Environment</label
+      >
+      <div class="col-3">
+        <select class="form-control" id="evnviornment" #environment>
+          <option>Dev</option>
+          <option>qa</option>
+          <option>uat</option>
+          <option>prod</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row justify-content-center">
+      <label for="trackingId" class="col-sm-2 col-form-label"
+        >Tracker Id's</label
+      >
+      <div class="col-3">
+        <input type="text" class="form-control" id="trackingId" #trackingId />
+      </div>
+    </div>
+
+    <div class="form-group row justify-content-center">
+      <button
+        type="button"
+        class="btn btn-primary col-2"
+        (click)="onAdd(environment.value, trackingId.value)"
+      >
+        Schedule
+      </button>
+    </div>
+  </form>
+
+  <div *ngIf="table">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Enviornment</th>
+          <th scope="col">Tracker Id's</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ env }}</td>
+          <td>{{ tracking }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
+
+<div class="container">
+  <form>
+    <div class="form-group row justify-content-center">
+      <label for="evnviornment" class="col-sm-2 col-form-label"
+        >Environment</label
+      >
+      <div class="col-3">
+        <select class="form-control" id="evnviornment" #environment>
+          <option>Dev</option>
+          <option>qa</option>
+          <option>uat</option>
+          <option>prod</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row justify-content-center">
+      <label for="trackingId" class="col-sm-2 col-form-label"
+        >Tracker Id's</label
+      >
+      <div class="col-3">
+        <input type="text" class="form-control" id="trackingId" #trackingId />
+      </div>
+    </div>
+
+    <div class="form-group row justify-content-center">
+      <button
+        type="button"
+        class="btn btn-primary col-2"
+        (click)="onAdd(environment.value, trackingId.value)"
+      >
+        Schedule
+      </button>
+    </div>
+  </form>
+
+  <div *ngIf="table">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Enviornment</th>
+          <th scope="col">Tracker Id's</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of entries">
+          <td>{{ item.environment }}</td>
+          <td>{{ item.trackerId }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    {{ entries }}
+  </div>
+</div>
