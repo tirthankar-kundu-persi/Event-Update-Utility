@@ -42,6 +42,13 @@
         Update
       </button>
     </div>
+    
+    <div class = "form-group row justify-content-center" style="float:left;width: 300px;">
+      <label for = "json">Json file</label>
+      <textarea class = "form-control" rows = "10" #jsondata style="margin: 0 auto;">{{json}}</textarea>
+      <button (click)="copyInputMessage(jsondata)" value="click to copy" >Copy from TextArea</button>
+   </div>
+
   </form>
 
   <!-- <div *ngIf="table">
