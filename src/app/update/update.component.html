@@ -1,7 +1,7 @@
 <p>update works!</p>
 
 <div class="container">
-  <form>
+  <form #form1>
     <div class="form-group row justify-content-center">
       <label for="evnviornment" class="col-sm-2 col-form-label"
         >Environment</label
@@ -26,11 +26,11 @@
     <div class="form-group row justify-content-center">
       <label for="status" class="col-sm-2 col-form-label">Status</label>
       <div class="col-3">
-        <input type="Text" class="form-control" id="status" #status />
+        <input type="Text" class="form-control" id="s" #status />
       </div>
     </div>
 
-    <div *ngIf="add" class="form-group row justify-content-center">
+    <div *ngIf="hideData" class="form-group row justify-content-center">
       <label for="dataJson" class="col-sm-2 col-form-label">Data JSON</label>
       <div class="col-3">
         <input
@@ -41,9 +41,17 @@
           name="data"
         />
       </div>
+      <button
+        type="button"
+        style="margin: 2px"
+        class="btn btn-primary col-2"
+        (click)="hide_data()"
+      >
+        Delete
+      </button>
     </div>
 
-    <div *ngIf="add" class="form-group row justify-content-center">
+    <div *ngIf="hideResponse" class="form-group row justify-content-center">
       <label for="responseMsg" class="col-sm-2 col-form-label"
         >Response Message</label
       >
@@ -56,9 +64,17 @@
           name="msg"
         />
       </div>
+      <button
+        type="button"
+        style="margin: 2px"
+        class="btn btn-primary col-2"
+        (click)="hide_res()"
+      >
+        Delete
+      </button>
     </div>
 
-    <div *ngIf="add" class="form-group row justify-content-center">
+    <div *ngIf="hideGroup" class="form-group row justify-content-center">
       <label for="groupId" class="col-sm-2 col-form-label">Group Id</label>
       <div class="col-3">
         <input
@@ -69,6 +85,14 @@
           name="group"
         />
       </div>
+      <button
+        type="button"
+        style="margin: 2px"
+        class="btn btn-primary col-2"
+        (click)="hide_group()"
+      >
+        Delete
+      </button>
     </div>
 
     <div class="form-group row justify-content-center">
@@ -85,6 +109,7 @@
         style="margin: 2px"
         class="btn btn-primary col-2"
         (click)="onAdd(environment.value, trackingId.value, status.value)"
+        (click)="clear(form1)"
       >
         Update
       </button>

@@ -11,13 +11,16 @@ export class UpdateComponent implements OnInit {
   environment = "";
   trackerId;
   status = "";
-  table = false;
+
   json;
   entries;
   dataJson;
   responseMsg;
   groupId;
   add = false;
+  hideGroup = false;
+  hideResponse = false;
+  hideData = false;
 
   constructor(private service: UpdateService) {}
 
@@ -28,7 +31,7 @@ export class UpdateComponent implements OnInit {
     this.environment = env;
     this.trackerId = Number(id);
     this.status = status;
-    this.table = true;
+    // this.table = true;
 
     this.service.add(
       this.environment,
@@ -41,9 +44,36 @@ export class UpdateComponent implements OnInit {
 
     this.entries = this.service.get();
     this.json = this.service.getjson();
+    // this.add = false;
+    this.hideGroup = false;
+    this.hideResponse = false;
+    this.hideData = false;
   }
-
   onAddMore() {
-    this.add = true;
+    // this.add = true;
+    this.hideGroup = true;
+    this.hideResponse = true;
+    this.hideData = true;
+  }
+  clear(form1) {
+    form1.reset();
+  }
+  hide_data() {
+    // this.add = false;
+    // this.hideGroup = false;
+    // this.hideResponse = false;
+    this.hideData = false;
+  }
+  hide_res() {
+    // this.add = false;
+    // this.hideGroup = false;
+    this.hideResponse = false;
+    // this.hideData = false;
+  }
+  hide_group() {
+    // this.add = false;
+    this.hideGroup = false;
+    // this.hideResponse = false;
+    // this.hideData = false;
   }
 }
