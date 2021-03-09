@@ -30,8 +30,13 @@
       </div>
     </div>
 
-    <div *ngIf="hideData" class="form-group row justify-content-center">
-      <label for="dataJson" class="col-sm-2 col-form-label">Data JSON</label>
+    <div *ngIf="hideData" class="form-group row justify-content-start">
+      <label
+        for="dataJson"
+        class="col-sm-2 col-form-label"
+        style="margin-left: 331px"
+        >Data JSON</label
+      >
       <div class="col-3">
         <input
           type="Text"
@@ -41,18 +46,16 @@
           name="data"
         />
       </div>
-      <button
-        type="button"
-        style="margin: 2px"
-        class="btn btn-primary col-2"
-        (click)="hide_data()"
-      >
+      <button type="button" class="btn btn-danger" (click)="hide_data()">
         Delete
       </button>
     </div>
 
-    <div *ngIf="hideResponse" class="form-group row justify-content-center">
-      <label for="responseMsg" class="col-sm-2 col-form-label"
+    <div *ngIf="hideResponse" class="form-group row justify-content-start">
+      <label
+        for="responseMsg"
+        class="col-sm-2 col-form-label"
+        style="margin-left: 331px"
         >Response Message</label
       >
       <div class="col-3">
@@ -64,18 +67,18 @@
           name="msg"
         />
       </div>
-      <button
-        type="button"
-        style="margin: 2px"
-        class="btn btn-primary col-2"
-        (click)="hide_res()"
-      >
+      <button type="button" class="btn btn-danger" (click)="hide_res()">
         Delete
       </button>
     </div>
 
-    <div *ngIf="hideGroup" class="form-group row justify-content-center">
-      <label for="groupId" class="col-sm-2 col-form-label">Group Id</label>
+    <div *ngIf="hideGroup" class="form-group row justify-content-start">
+      <label
+        for="groupId"
+        class="col-sm-2 col-form-label"
+        style="margin-left: 331px"
+        >Group Id</label
+      >
       <div class="col-3">
         <input
           type="Text"
@@ -85,12 +88,7 @@
           name="group"
         />
       </div>
-      <button
-        type="button"
-        style="margin: 2px"
-        class="btn btn-primary col-2"
-        (click)="hide_group()"
-      >
+      <button type="button" class="btn btn-danger" (click)="hide_group()">
         Delete
       </button>
     </div>
