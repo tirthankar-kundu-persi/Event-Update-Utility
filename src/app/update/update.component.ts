@@ -63,16 +63,23 @@ export class UpdateComponent implements OnInit {
     // this.hideGroup = false;
     // this.hideResponse = false;
     this.hideData = false;
+    this.dataJson = "";
   }
   hide_res() {
     // this.add = false;
     // this.hideGroup = false;
     this.hideResponse = false;
+    this.responseMsg = "";
     // this.hideData = false;
   }
   hide_group() {
+    // group.reset();
+    // console.log(group.value);
     // this.add = false;
+    this.groupId = 0;
+
     this.hideGroup = false;
+
     // this.hideResponse = false;
     // this.hideData = false;
   }
