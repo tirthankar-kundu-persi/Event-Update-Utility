@@ -14,6 +14,9 @@ export class UpdateComponent implements OnInit {
   table = false;
   json;
   entries;
+  dataJson;
+  responseMsg;
+  groupId;
   constructor(private service: UpdateService) {}
 
   ngOnInit(): void {}
