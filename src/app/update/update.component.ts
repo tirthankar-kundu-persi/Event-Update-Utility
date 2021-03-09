@@ -30,7 +30,15 @@ export class UpdateComponent implements OnInit {
     this.status = status;
     this.table = true;
 
-    this.service.add(this.environment, this.trackerId, this.status);
+    this.service.add(
+      this.environment,
+      this.trackerId,
+      this.status,
+      this.dataJson,
+      this.responseMsg,
+      this.groupId
+    );
+
     this.entries = this.service.get();
     this.json = this.service.getjson();
   }

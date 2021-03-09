@@ -33,7 +33,13 @@
     <div *ngIf="add" class="form-group row justify-content-center">
       <label for="dataJson" class="col-sm-2 col-form-label">Data JSON</label>
       <div class="col-3">
-        <input type="Text" class="form-control" id="dataJson" />
+        <input
+          type="Text"
+          class="form-control"
+          id="dataJson"
+          [(ngModel)]="dataJson"
+          name="data"
+        />
       </div>
     </div>
 
@@ -42,14 +48,26 @@
         >Response Message</label
       >
       <div class="col-3">
-        <input type="Text" class="form-control" id="responseMsg" />
+        <input
+          type="Text"
+          class="form-control"
+          id="responseMsg"
+          [(ngModel)]="responseMsg"
+          name="msg"
+        />
       </div>
     </div>
 
     <div *ngIf="add" class="form-group row justify-content-center">
       <label for="groupId" class="col-sm-2 col-form-label">Group Id</label>
       <div class="col-3">
-        <input type="Text" class="form-control" id="groupId" />
+        <input
+          type="Text"
+          class="form-control"
+          id="groupId"
+          [(ngModel)]="groupId"
+          name="group"
+        />
       </div>
     </div>
 
