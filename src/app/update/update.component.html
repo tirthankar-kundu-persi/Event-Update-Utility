@@ -19,25 +19,54 @@
     <div class="form-group row justify-content-center">
       <label for="trackingId" class="col-sm-2 col-form-label">Tracker Id</label>
       <div class="col-3">
-        <input type="number" class="form-control" id="trackingId" #trackingId />
+        <input type="Text" class="form-control" id="trackingId" #trackingId />
       </div>
     </div>
 
     <div class="form-group row justify-content-center">
       <label for="status" class="col-sm-2 col-form-label">Status</label>
       <div class="col-3">
-        <select class="form-control" id="status" #Status>
-          <option>Completed</option>
-          <option>Error</option>
-        </select>
+        <input type="Text" class="form-control" id="status" #status />
+      </div>
+    </div>
+
+    <div *ngIf="add" class="form-group row justify-content-center">
+      <label for="dataJson" class="col-sm-2 col-form-label">Data JSON</label>
+      <div class="col-3">
+        <input type="Text" class="form-control" id="dataJson" />
+      </div>
+    </div>
+
+    <div *ngIf="add" class="form-group row justify-content-center">
+      <label for="responseMsg" class="col-sm-2 col-form-label"
+        >Response Message</label
+      >
+      <div class="col-3">
+        <input type="Text" class="form-control" id="responseMsg" />
+      </div>
+    </div>
+
+    <div *ngIf="add" class="form-group row justify-content-center">
+      <label for="groupId" class="col-sm-2 col-form-label">Group Id</label>
+      <div class="col-3">
+        <input type="Text" class="form-control" id="groupId" />
       </div>
     </div>
 
     <div class="form-group row justify-content-center">
       <button
         type="button"
+        style="margin: 2px"
         class="btn btn-primary col-2"
-        (click)="onAdd(environment.value, trackingId.value, Status.value)"
+        (click)="onAddMore()"
+      >
+        Add more
+      </button>
+      <button
+        type="button"
+        style="margin: 2px"
+        class="btn btn-primary col-2"
+        (click)="onAdd(environment.value, trackingId.value, status.value)"
       >
         Update
       </button>

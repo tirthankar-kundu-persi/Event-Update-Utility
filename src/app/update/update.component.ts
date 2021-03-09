@@ -17,6 +17,8 @@ export class UpdateComponent implements OnInit {
   dataJson;
   responseMsg;
   groupId;
+  add = false;
+
   constructor(private service: UpdateService) {}
 
   ngOnInit(): void {}
@@ -31,5 +33,9 @@ export class UpdateComponent implements OnInit {
     this.service.add(this.environment, this.trackerId, this.status);
     this.entries = this.service.get();
     this.json = this.service.getjson();
+  }
+
+  onAddMore() {
+    this.add = true;
   }
 }
