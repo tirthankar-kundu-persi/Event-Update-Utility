@@ -83,4 +83,12 @@ export class UpdateComponent implements OnInit {
     // this.hideResponse = false;
     // this.hideData = false;
   }
+
+  copyInputMessage(inputElement){
+    inputElement.select();
+    document.execCommand('copy');
+    inputElement.setSelectionRange(0, 0);
+  }
+  
+
 }
