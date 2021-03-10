@@ -1,146 +1,145 @@
-
 <div class="container">
-
-<div class="container mt-5">
-  <form #form1>
-    <div class="form-group row">
-      <label
-        for="evnviornment"
-        class="col-sm-2 col-form-label"
-        style="margin-left: 29%"
-        >Environment</label
-      >
-      <div class="col-3">
-        <select class="form-control" id="evnviornment" #environment>
-          <option>Dev</option>
-          <option>qa</option>
-          <option>uat</option>
-          <option>prod</option>
-        </select>
+  <div class="container mt-5">
+    <form #form1>
+      <div class="form-group row">
+        <label
+          for="evnviornment"
+          class="col-sm-2 col-form-label"
+          style="margin-left: 29%"
+          >Environment</label
+        >
+        <div class="col-3">
+          <select class="form-control" id="evnviornment" #environment>
+            <option>DEV</option>
+            <option>QA</option>
+            <option>UAT</option>
+            <option>PROD</option>
+          </select>
+        </div>
       </div>
-    </div>
 
-    <div class="form-group row">
-      <label
-        for="trackingId"
-        class="col-sm-2 col-form-label"
-        style="margin-left: 29%"
-        >Tracker Id</label
-      >
-      <div class="col-3">
-        <input type="Text" class="form-control" id="trackingId" #trackingId />
+      <div class="form-group row">
+        <label
+          for="trackingId"
+          class="col-sm-2 col-form-label"
+          style="margin-left: 29%"
+          >Tracker Id</label
+        >
+        <div class="col-3">
+          <input type="Text" class="form-control" id="trackingId" #trackingId />
+        </div>
       </div>
-    </div>
 
-    <div class="form-group row">
-      <label
-        for="status"
-        class="col-sm-2 col-form-label"
-        style="margin-left: 29%"
-        >Status</label
-      >
-      <div class="col-3">
-        <input type="Text" class="form-control" id="s" #status />
+      <div class="form-group row">
+        <label
+          for="status"
+          class="col-sm-2 col-form-label"
+          style="margin-left: 29%"
+          >Status</label
+        >
+        <div class="col-3">
+          <input type="Text" class="form-control" id="s" #status />
+        </div>
       </div>
-    </div>
 
-    <div *ngIf="hideData" class="form-group row">
-      <label
-        for="dataJson"
-        class="col-sm-2 col-form-label"
-        style="margin-left: 29%"
-        >Data JSON</label
-      >
-      <div class="col-3">
-        <input
-          type="Text"
-          class="form-control"
-          id="dataJson"
-          [(ngModel)]="dataJson"
-          name="data"
-        />
+      <div *ngIf="hideData" class="form-group row">
+        <label
+          for="dataJson"
+          class="col-sm-2 col-form-label"
+          style="margin-left: 29%"
+          >Data JSON</label
+        >
+        <div class="col-3">
+          <input
+            type="Text"
+            class="form-control"
+            id="dataJson"
+            [(ngModel)]="dataJson"
+            name="data"
+          />
+        </div>
+        <button type="button" class="btn btn-danger" (click)="hide_data()">
+          Delete
+        </button>
       </div>
-      <button type="button" class="btn btn-danger" (click)="hide_data()">
-        Delete
-      </button>
-    </div>
 
-    <div *ngIf="hideResponse" class="form-group row">
-      <label
-        for="responseMsg"
-        class="col-sm-2 col-form-label"
-        style="margin-left: 29%"
-        >Response Message</label
-      >
-      <div class="col-3">
-        <input
-          type="Text"
-          class="form-control"
-          id="responseMsg"
-          [(ngModel)]="responseMsg"
-          name="msg"
-        />
+      <div *ngIf="hideResponse" class="form-group row">
+        <label
+          for="responseMsg"
+          class="col-sm-2 col-form-label"
+          style="margin-left: 29%"
+          >Response Message</label
+        >
+        <div class="col-3">
+          <input
+            type="Text"
+            class="form-control"
+            id="responseMsg"
+            [(ngModel)]="responseMsg"
+            name="msg"
+          />
+        </div>
+        <button type="button" class="btn btn-danger" (click)="hide_res()">
+          Delete
+        </button>
       </div>
-      <button type="button" class="btn btn-danger" (click)="hide_res()">
-        Delete
-      </button>
-    </div>
 
-    <div *ngIf="hideGroup" class="form-group row">
-      <label
-        for="groupId"
-        class="col-sm-2 col-form-label"
-        style="margin-left: 29%"
-        >Group Id</label
-      >
-      <div class="col-3">
-        <input
-          #gId
-          type="number"
-          class="form-control"
-          id="groupId"
-          [(ngModel)]="groupId"
-          name="group"
-        />
+      <div *ngIf="hideGroup" class="form-group row">
+        <label
+          for="groupId"
+          class="col-sm-2 col-form-label"
+          style="margin-left: 29%"
+          >Group Id</label
+        >
+        <div class="col-3">
+          <input
+            #gId
+            type="number"
+            class="form-control"
+            id="groupId"
+            [(ngModel)]="groupId"
+            name="group"
+          />
+        </div>
+        <button type="button" class="btn btn-danger" (click)="hide_group()">
+          Delete
+        </button>
       </div>
-      <button type="button" class="btn btn-danger" (click)="hide_group()">
-        Delete
-      </button>
-    </div>
 
-    <div class="form-group row justify-content-center">
-      <button
-        type="button"
-        style="margin: 2px"
-        class="btn btn-primary col-2"
-        (click)="onAddMore()"
-      >
-        Add more
-      </button>
-      <button
-        type="button"
-        style="margin: 2px"
-        class="btn btn-primary col-2"
-        (click)="onAdd(environment.value, trackingId.value, status.value)"
-        (click)="clear(form1)"
-      >
-        Update
-      </button>
-    </div>
+      <div class="form-group row justify-content-center">
+        <button
+          type="button"
+          style="margin: 2px"
+          class="btn btn-primary col-2"
+          (click)="onAddMore()"
+        >
+          Add more
+        </button>
+        <button
+          type="button"
+          style="margin: 2px"
+          class="btn btn-primary col-2"
+          (click)="onAdd(environment.value, trackingId.value, status.value)"
+          (click)="clear(form1)"
+        >
+          Update
+        </button>
+      </div>
 
-    <div
-      class="form-group row justify-content-center mt-5"
-      style="width: 45%; margin: auto"
-    >
-      <label for="json"><strong>JSON file</strong> </label>
-      <textarea class="form-control" rows="10" #jsondata>{{ json }}</textarea>
-      <button
-        (click)="copyInputMessage(jsondata)"
-        value="click to copy"
-        class="my-5 btn btn-success"
+      <div
+        class="form-group row justify-content-center mt-5"
+        style="width: 45%; margin: auto"
       >
-        Copy from TextArea
-      </button>
-    </div>
-  </form>
+        <!-- <label for="json"><strong>JSON file</strong> </label> -->
+        <textarea class="form-control" rows="10" #jsondata>{{ json }}</textarea>
+        <button
+          (click)="copyInputMessage(jsondata)"
+          value="click to copy"
+          class="my-5 btn btn-success"
+        >
+          Copy
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
