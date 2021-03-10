@@ -21,18 +21,140 @@ export class UpdateEventsDetailsComponent implements OnInit {
   entries;
   details = {};
   json;
-
+  dataJson;
+  responseMsg;
+  serviceConsumerKey;
+  conformationId;
+  transactionRawJson;
+  eventGroupId;
+  add = false;
+  hideResponse = false;
+  hidedataJson= false;
+  hideserviceConsumerKey=false;
+  hideconformationId=false;
+  hidetransactionRawJson=false;
+  hideeventGroupId=false;
   constructor(private service: UpdateService) {}
 
   ngOnInit(): void {}
+
   onAdd(env, id, status) {
     this.environment = env;
-    this.trackerId = Number(id);
+    this.trackerId =id;
     this.status = status;
-    this.table = true;
+    
 
-    // this.service.add(this.environment, this.trackerId, this.status);
-    // this.entries = this.service.get();
-    this.json = this.service.getjson();
+   if(this.eventGroupId=="")
+    this.eventGroupId=0;
+
+    this.service.addUpdateEventDetails(
+      this.environment,
+      this.trackerId,
+      this.status,
+      this.dataJson,
+      this.responseMsg,
+      this.serviceConsumerKey,
+      this.conformationId,
+      this.transactionRawJson,
+      this.eventGroupId
+    );
+
+    this.json = this.service.getjsonupdateeventdetails();
+    console.log(this.json)
+    this.dataJson="";
+    this.responseMsg="";
+    this.serviceConsumerKey="";
+    this.conformationId="";
+    this.eventGroupId="";
+    this.transactionRawJson="";
+
+
+    this.hideResponse = false;
+    this.hidedataJson = false;
+    this.hideserviceConsumerKey = false;
+    this.hideconformationId = false;
+    this.hidetransactionRawJson = false;
+    this.hideeventGroupId = false;
+
   }
+
+  copyInputMessage(inputElement){
+    inputElement.select();
+    document.execCommand('copy');
+    inputElement.setSelectionRange(0, 0);
+  }
+
+
+  onAddMore()
+  {
+    
+  this.hidedataJson= true;
+  this.hideResponse = true;
+  this.hideserviceConsumerKey=true;
+  this.hideconformationId=true;
+  this.hidetransactionRawJson=true;
+  this.hideeventGroupId=true;
+
+  }
+
+  clear(form2) {
+    form2.reset();
+  }
+
+
+  hide_data() 
+  {
+    this.hidedataJson = false;
+    this.dataJson = "";
+   
+   
+  }
+  hide_res() {
+    this.hideResponse = false;
+    this.responseMsg = "";
+    
+   
+  }
+  
+  hide_serviceConsumerKey()
+  {
+    this.hideserviceConsumerKey = false;
+    this.serviceConsumerKey = "";
+   
+   
+
+  }
+  hide_conformationId()
+  {
+    this.hideconformationId = false;
+    this.conformationId = "";
+   
+
+
+  }
+  hide_transactionRawJson()
+  {
+    this.hidetransactionRawJson=false;
+    this.transactionRawJson= "";
+   
+   
+
+
+  }
+  hide_eventGroupId()
+  {
+    this.hideeventGroupId= false;
+    this.eventGroupId= "";
+   
+    
+
+  }
+
+
+
+
+
+
+
+
 }

@@ -30,6 +30,9 @@ export class UpdateComponent implements OnInit {
     this.trackerId = id;
     this.status = status;
     
+    if(this.groupId=="")
+    this.groupId=0;
+    
 
     this.service.add(
       this.environment,
@@ -42,8 +45,10 @@ export class UpdateComponent implements OnInit {
 
     // this.entries = this.service.get();
     this.json = this.service.getjson();
-    console.log(this.json)
     // this.add = false;
+    this.dataJson="";
+    this.responseMsg="";
+    this.groupId="";
     this.hideGroup = false;
     this.hideResponse = false;
     this.hideData = false;
@@ -57,6 +62,7 @@ export class UpdateComponent implements OnInit {
   clear(form1) {
     form1.reset();
   }
+
   hide_data() {
     // this.add = false;
     // this.hideGroup = false;
@@ -75,7 +81,7 @@ export class UpdateComponent implements OnInit {
     // group.reset();
     // console.log(group.value);
     // this.add = false;
-    this.groupId = 0;
+    this.groupId = "";
 
     this.hideGroup = false;
 
