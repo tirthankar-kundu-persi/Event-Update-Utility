@@ -6,25 +6,31 @@ import { UpdateComponent } from "./update/update.component";
 import { UpdateEventsDetailsComponent } from "./update-events-details/update-events-details.component";
 var routes = [
   {
-    path: "",
+    path: "home",
     component: HomeComponent,
+    pathMatch: "full",
   },
   {
     path: "schedule",
     component: ScheduleComponent,
+    pathMatch: "full",
   },
   {
     path: "update",
     component: UpdateComponent,
+    pathMatch: "full",
   },
 
   {
-    path: "home",
-    component: HomeComponent,
-  },
-  {
     path: "updateeventsdetails",
     component: UpdateEventsDetailsComponent,
+    pathMatch: "full",
+  },
+  {
+    path: "",
+    redirectTo: "home",
+    // component: HomeComponent,
+    pathMatch: "full",
   },
 ];
 
