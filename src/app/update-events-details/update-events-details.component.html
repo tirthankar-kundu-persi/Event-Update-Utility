@@ -1,197 +1,231 @@
-
 <div class="container">
   <form #form2>
-<div class="container mt-5">
-  <form>
-    <div class="form-group row justify-content-center">
-      <label for="evnviornment" class="col-sm-2 col-form-label"
-        >Environment</label
-      >
-      <div class="col-3">
-        <select class="form-control" id="evnviornment" #environment>
-          <option>Dev</option>
-          <option>qa</option>
-          <option>uat</option>
-          <option>prod</option>
-        </select>
-      </div>
+    <div class="container mt-5">
+      <form>
+        <div class="form-group row justify-content-center">
+          <label for="evnviornment" class="col-sm-2 col-form-label"
+            >Environment</label
+          >
+          <div class="col-3">
+            <select class="form-control" id="evnviornment" #environment>
+              <option>Dev</option>
+              <option>qa</option>
+              <option>uat</option>
+              <option>prod</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row justify-content-center">
+          <label for="trackingId" class="col-sm-2 col-form-label"
+            >Tracker Id</label
+          >
+          <div class="col-3">
+            <input
+              type="text"
+              class="form-control"
+              id="trackingId"
+              #trackingId
+            />
+          </div>
+        </div>
+
+        <div class="form-group row justify-content-center">
+          <label for="status" class="col-sm-2 col-form-label">Status</label>
+          <div class="col-3">
+            <input type="text" class="form-control" id="status" #Status />
+          </div>
+        </div>
+
+        <div *ngIf="hidedataJson" class="form-group row">
+          <label
+            for="dataJson"
+            class="col-sm-2 col-form-label"
+            style="margin-left: 29%"
+            >Data JSON</label
+          >
+          <div class="col-3">
+            <input
+              type="Text"
+              class="form-control"
+              id="dataJson"
+              [(ngModel)]="dataJson"
+              name="data"
+            />
+          </div>
+          <button type="button" class="btn btn-danger" (click)="hide_data()">
+            Delete
+          </button>
+        </div>
+
+        <div *ngIf="hideResponse" class="form-group row">
+          <label
+            for="responseMsg"
+            class="col-sm-2 col-form-label"
+            style="margin-left: 29%"
+            >Response Message</label
+          >
+          <div class="col-3">
+            <input
+              type="Text"
+              class="form-control"
+              id="responseMsg"
+              [(ngModel)]="responseMsg"
+              name="msg"
+            />
+          </div>
+          <button type="button" class="btn btn-danger" (click)="hide_res()">
+            Delete
+          </button>
+        </div>
+
+        <div *ngIf="hideserviceConsumerKey" class="form-group row">
+          <label
+            for="serviceConsumerKey"
+            class="col-sm-2 col-form-label"
+            style="margin-left: 29%"
+            >serviceConsumerKey</label
+          >
+          <div class="col-3">
+            <input
+              #gId
+              type="Text"
+              class="form-control"
+              id="serviceConsumerKey"
+              [(ngModel)]="serviceConsumerKey"
+              name="scKey"
+            />
+          </div>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="hide_serviceConsumerKey()"
+          >
+            Delete
+          </button>
+        </div>
+
+        <div *ngIf="hideconformationId" class="form-group row">
+          <label
+            for="groupId"
+            class="col-sm-2 col-form-label"
+            style="margin-left: 29%"
+            >conformationId</label
+          >
+          <div class="col-3">
+            <input
+              #gId
+              type="Text"
+              class="form-control"
+              id="conformationId"
+              [(ngModel)]="conformationId"
+              name="conformationId"
+            />
+          </div>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="hide_conformationId()"
+          >
+            Delete
+          </button>
+        </div>
+
+        <div *ngIf="hidetransactionRawJson" class="form-group row">
+          <label
+            for="transactionRawJson"
+            class="col-sm-2 col-form-label"
+            style="margin-left: 29%"
+            >transactionRawJson</label
+          >
+          <div class="col-3">
+            <input
+              #gId
+              type="Text"
+              class="form-control"
+              id="transactionRawJson"
+              [(ngModel)]="transactionRawJson"
+              name="transactionRawJson"
+            />
+          </div>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="hide_transactionRawJson()"
+          >
+            Delete
+          </button>
+        </div>
+
+        <div *ngIf="hideeventGroupId" class="form-group row">
+          <label
+            for="eventGroupId"
+            class="col-sm-2 col-form-label"
+            style="margin-left: 29%"
+            >eventGroupId</label
+          >
+          <div class="col-3">
+            <input
+              #gId
+              type="number"
+              class="form-control"
+              id="eventGroupId"
+              [(ngModel)]="eventGroupId"
+              name="eventGroupId"
+            />
+          </div>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="hide_eventGroupId()"
+          >
+            Delete
+          </button>
+        </div>
+
+        <div class="form-group row justify-content-center">
+          <button
+            type="button"
+            style="margin: 2px"
+            class="btn btn-primary col-2"
+            (click)="onAddMore()"
+          >
+            Add more
+          </button>
+          <button
+            type="button"
+            style="margin: 2px"
+            class="btn btn-primary col-2"
+            (click)="
+              onAdd(environment.value, trackingId.value, Status.value);
+              clear(form2)
+            "
+          >
+            Update
+          </button>
+        </div>
+
+        <div
+          class="form-group row justify-content-center mt-5"
+          style="width: 45%; margin: auto"
+        >
+          <label for="json">Json file</label>
+          <textarea
+            class="form-control"
+            rows="10"
+            #jsondata
+            style="margin: 0 auto"
+            >{{ json }}</textarea
+          >
+          <button
+            (click)="copyInputMessage(jsondata)"
+            value="click to copy"
+            class="my-5 btn btn-success"
+          >
+            Copy from TextArea
+          </button>
+        </div>
+      </form>
     </div>
-
-    <div class="form-group row justify-content-center">
-      <label for="trackingId" class="col-sm-2 col-form-label">Tracker Id</label>
-      <div class="col-3">
-        <input type="text" class="form-control" id="trackingId" #trackingId />
-      </div>
-    </div>
-
-    <div class="form-group row justify-content-center">
-      <label for="status" class="col-sm-2 col-form-label">Status</label>
-      <div class="col-3">
-        <input type="text" class="form-control" id="status" #Status>
-      </div>
-    </div>
-    
-    <div *ngIf="hidedataJson" class="form-group row">
-      <label
-        for="dataJson"
-        class="col-sm-2 col-form-label"
-        style="margin-left: 29%"
-        >Data JSON</label
-      >
-      <div class="col-3">
-        <input
-          type="Text"
-          class="form-control"
-          id="dataJson"
-          [(ngModel)]="dataJson"
-          name="data"
-        />
-      </div>
-      <button type="button" class="btn btn-danger" (click)="hide_data()">
-        Delete
-      </button>
-    </div>
-
-    <div *ngIf="hideResponse" class="form-group row">
-      <label
-        for="responseMsg"
-        class="col-sm-2 col-form-label"
-        style="margin-left: 29%"
-        >Response Message</label
-      >
-      <div class="col-3">
-        <input
-          type="Text"
-          class="form-control"
-          id="responseMsg"
-          [(ngModel)]="responseMsg"
-          name="msg"
-        />
-      </div>
-      <button type="button" class="btn btn-danger" (click)="hide_res()">
-        Delete
-      </button>
-    </div>
-
-    <div *ngIf="hideserviceConsumerKey" class="form-group row">
-      <label
-        for="serviceConsumerKey"
-        class="col-sm-2 col-form-label"
-        style="margin-left: 29%"
-        >serviceConsumerKey</label
-      >
-      <div class="col-3">
-        <input
-          #gId
-          type="Text"
-          class="form-control"
-          id="serviceConsumerKey"
-          [(ngModel)]="serviceConsumerKey"
-          name="scKey"
-        />
-      </div>
-      <button type="button" class="btn btn-danger" (click)="hide_serviceConsumerKey()">
-        Delete
-      </button>
-    </div>
-
-
-    <div *ngIf="hideconformationId" class="form-group row">
-      <label
-        for="groupId"
-        class="col-sm-2 col-form-label"
-        style="margin-left: 29%"
-        >conformationId</label
-      >
-      <div class="col-3">
-        <input
-          #gId
-          type="Text"
-          class="form-control"
-          id="conformationId"
-          [(ngModel)]="conformationId"
-          name="conformationId"
-        />
-      </div>
-      <button type="button" class="btn btn-danger" (click)="hide_conformationId()">
-        Delete
-      </button>
-    </div>
-
-    <div *ngIf="hidetransactionRawJson" class="form-group row">
-      <label
-        for="transactionRawJson"
-        class="col-sm-2 col-form-label"
-        style="margin-left: 29%"
-        >transactionRawJson</label
-      >
-      <div class="col-3">
-        <input
-          #gId
-          type="Text"
-          class="form-control"
-          id="transactionRawJson"
-          [(ngModel)]="transactionRawJson"
-          name="transactionRawJson"
-        />
-      </div>
-      <button type="button" class="btn btn-danger" (click)="hide_transactionRawJson()">
-        Delete
-      </button>
-    </div>
-
-    <div *ngIf="hideeventGroupId" class="form-group row">
-      <label
-        for="eventGroupId"
-        class="col-sm-2 col-form-label"
-        style="margin-left: 29%"
-        >eventGroupId</label
-      >
-      <div class="col-3">
-        <input
-          #gId
-          type="number"
-          class="form-control"
-          id="eventGroupId"
-          [(ngModel)]="eventGroupId"
-          name="eventGroupId"
-        />
-      </div>
-      <button type="button" class="btn btn-danger" (click)="hide_eventGroupId()">
-        Delete
-      </button>
-    </div>
-
-
-    <div class="form-group row justify-content-center">
-      <button
-        type="button"
-        style="margin: 2px"
-        class="btn btn-primary col-2"
-        (click)="onAddMore()"
-      >
-        Add more
-      </button>
-      <button
-        type="button"
-        style="margin: 2px"
-        class="btn btn-primary col-2"
-        (click)="onAdd(environment.value, trackingId.value, Status.value);clear(form2);"
-      >
-        Update
-      </button>
-    </div>
-
-    <div class = "form-group row justify-content-center" style="float:left;width: 300px;">
-      <label for = "json">Json file</label>
-      <textarea class = "form-control" rows = "10" #jsondata style="margin: 0 auto;">{{json}}</textarea>
-      <button (click)="copyInputMessage(jsondata)" value="click to copy" >Copy from TextArea</button>
-   </div>
-
-    
-    
-    
   </form>
-
-  
 </div>
