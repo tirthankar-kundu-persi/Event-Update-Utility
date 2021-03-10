@@ -29,4 +29,12 @@ export class UpdateComponent implements OnInit {
     this.entries = this.service.get();
     this.json = this.service.getjson();
   }
+
+  copyInputMessage(inputElement){
+    inputElement.select();
+    document.execCommand('copy');
+    inputElement.setSelectionRange(0, 0);
+  }
+  
+
 }

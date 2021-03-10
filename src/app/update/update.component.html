@@ -26,10 +26,11 @@
     <div class="form-group row justify-content-center">
       <label for="status" class="col-sm-2 col-form-label">Status</label>
       <div class="col-3">
-        <select class="form-control" id="status" #Status>
+        <input type="text" class="form-control" id="status" #Status>
+        <!-- <select class="form-control" id="status" #Status>
           <option>Completed</option>
           <option>Error</option>
-        </select>
+        </select> -->
       </div>
     </div>
 
@@ -42,6 +43,13 @@
         Update
       </button>
     </div>
+    
+    <div class = "form-group row justify-content-center" style="float:left;width: 300px;">
+      <label for = "json">Json file</label>
+      <textarea class = "form-control" rows = "10" #jsondata style="margin: 0 auto;">{{json}}</textarea>
+      <button (click)="copyInputMessage(jsondata)" value="click to copy" >Copy from TextArea</button>
+   </div>
+
   </form>
 
   <!-- <div *ngIf="table">
