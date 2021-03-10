@@ -31,4 +31,13 @@ export class ScheduleComponent implements OnInit {
     this.service.add(this.trackerId);
     this.entries = this.service.getjson();
   }
+  clear(form1) {
+    form1.reset();
+  }
+
+  copyInputMessage(inputElement) {
+    inputElement.select();
+    document.execCommand("copy");
+    inputElement.setSelectionRange(0, 0);
+  }
 }
