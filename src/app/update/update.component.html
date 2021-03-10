@@ -2,8 +2,11 @@
 
 <div class="container">
   <form #form1>
-    <div class="form-group row justify-content-center">
-      <label for="evnviornment" class="col-sm-2 col-form-label"
+    <div class="form-group row" style="border: 2px solid black">
+      <label
+        for="evnviornment"
+        class="col-sm-2 col-form-label"
+        style="margin-left: 29%"
         >Environment</label
       >
       <div class="col-3">
@@ -16,25 +19,35 @@
       </div>
     </div>
 
-    <div class="form-group row justify-content-center">
-      <label for="trackingId" class="col-sm-2 col-form-label">Tracker Id</label>
+    <div class="form-group row">
+      <label
+        for="trackingId"
+        class="col-sm-2 col-form-label"
+        style="margin-left: 29%"
+        >Tracker Id</label
+      >
       <div class="col-3">
         <input type="Text" class="form-control" id="trackingId" #trackingId />
       </div>
     </div>
 
-    <div class="form-group row justify-content-center">
-      <label for="status" class="col-sm-2 col-form-label">Status</label>
+    <div class="form-group row">
+      <label
+        for="status"
+        class="col-sm-2 col-form-label"
+        style="margin-left: 29%"
+        >Status</label
+      >
       <div class="col-3">
         <input type="Text" class="form-control" id="s" #status />
       </div>
     </div>
 
-    <div *ngIf="hideData" class="form-group row justify-content-start">
+    <div *ngIf="hideData" class="form-group row">
       <label
         for="dataJson"
         class="col-sm-2 col-form-label"
-        style="margin-left: 331px"
+        style="margin-left: 29%"
         >Data JSON</label
       >
       <div class="col-3">
@@ -51,11 +64,11 @@
       </button>
     </div>
 
-    <div *ngIf="hideResponse" class="form-group row justify-content-start">
+    <div *ngIf="hideResponse" class="form-group row">
       <label
         for="responseMsg"
         class="col-sm-2 col-form-label"
-        style="margin-left: 331px"
+        style="margin-left: 29%"
         >Response Message</label
       >
       <div class="col-3">
@@ -72,11 +85,11 @@
       </button>
     </div>
 
-    <div *ngIf="hideGroup" class="form-group row justify-content-start">
+    <div *ngIf="hideGroup" class="form-group row">
       <label
         for="groupId"
         class="col-sm-2 col-form-label"
-        style="margin-left: 331px"
+        style="margin-left: 29%"
         >Group Id</label
       >
       <div class="col-3">
