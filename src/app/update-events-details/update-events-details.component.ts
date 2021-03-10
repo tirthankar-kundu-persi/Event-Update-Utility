@@ -32,7 +32,7 @@ export class UpdateEventsDetailsComponent implements OnInit {
     this.table = true;
 
     // this.service.add(this.environment, this.trackerId, this.status);
-    this.entries = this.service.get();
+    // this.entries = this.service.get();
     this.json = this.service.getjson();
   }
 }
