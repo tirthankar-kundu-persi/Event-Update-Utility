@@ -52,6 +52,32 @@
         </button>
       </div>
 
+      <div *ngIf="hideeventGroupId" class="form-group row">
+        <label
+          for="eventGroupId"
+          class="col-sm-2 col-form-label"
+          style="margin-left: 29%"
+          >event</label
+        >
+        <div class="col-3">
+          <input
+            #gId
+            type="text"
+            class="form-control"
+            id="eventGroupId"
+            [(ngModel)]="event"
+            name="eventGroupId"
+          />
+        </div>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="hide_eventGroupId()"
+        >
+          Delete
+        </button>
+      </div>
+
       <div *ngIf="hideResponse" class="form-group row">
         <label
           for="responseMsg"
@@ -99,32 +125,6 @@
         </button>
       </div>
 
-      <div *ngIf="hideconformationId" class="form-group row">
-        <label
-          for="groupId"
-          class="col-sm-2 col-form-label"
-          style="margin-left: 29%"
-          >conformationId</label
-        >
-        <div class="col-3">
-          <input
-            #gId
-            type="Text"
-            class="form-control"
-            id="conformationId"
-            [(ngModel)]="conformationId"
-            name="conformationId"
-          />
-        </div>
-        <button
-          type="button"
-          class="btn btn-danger"
-          (click)="hide_conformationId()"
-        >
-          Delete
-        </button>
-      </div>
-
       <div *ngIf="hidetransactionRawJson" class="form-group row">
         <label
           for="transactionRawJson"
@@ -146,32 +146,6 @@
           type="button"
           class="btn btn-danger"
           (click)="hide_transactionRawJson()"
-        >
-          Delete
-        </button>
-      </div>
-
-      <div *ngIf="hideeventGroupId" class="form-group row">
-        <label
-          for="eventGroupId"
-          class="col-sm-2 col-form-label"
-          style="margin-left: 29%"
-          >eventGroupId</label
-        >
-        <div class="col-3">
-          <input
-            #gId
-            type="number"
-            class="form-control"
-            id="eventGroupId"
-            [(ngModel)]="eventGroupId"
-            name="eventGroupId"
-          />
-        </div>
-        <button
-          type="button"
-          class="btn btn-danger"
-          (click)="hide_eventGroupId()"
         >
           Delete
         </button>

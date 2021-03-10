@@ -26,84 +26,68 @@ export class UpdateEventsDetailsComponent implements OnInit {
   serviceConsumerKey;
   conformationId;
   transactionRawJson;
-  eventGroupId;
-  trackerArray=[];
+  event;
+  trackerArray = [];
   result;
   add = false;
   hideResponse = false;
-  hidedataJson= false;
-  hideserviceConsumerKey=false;
-  hideconformationId=false;
-  hidetransactionRawJson=false;
-  hideeventGroupId=false;
+  hidedataJson = false;
+  hideserviceConsumerKey = false;
+  hideconformationId = false;
+  hidetransactionRawJson = false;
+  hideeventGroupId = false;
   constructor(private service: UpdateService) {}
 
   ngOnInit(): void {}
 
   onAdd(env, id, status) {
     this.environment = env;
-    this.trackerId =id;
+    this.trackerId = id;
     this.status = status.toUpperCase();
 
+    // if (this.eventGroupId == "") this.eventGroupId = 0;
 
-   if(this.eventGroupId=="")
-    this.eventGroupId=0;
-    
-    if(!this.hidedataJson)
-    {
+    if (!this.hidedataJson) {
       this.service.withoutDataJsonUED(
-      this.environment,
-      this.trackerId,
-      this.status,
-      this.responseMsg,
-      this.serviceConsumerKey,
-      this.conformationId,
-      this.transactionRawJson,
-      this.eventGroupId
+        this.environment,
+        this.trackerId,
+        this.status,
+        this.event,
+        this.responseMsg,
+        this.serviceConsumerKey,
+
+        this.transactionRawJson
       );
       this.json = this.service.withoutDataJsongetUED();
-
-    
-    }
-    else
-    {
-      if(String(this.dataJson).length>0)
-      {
-       
+    } else {
+      if (String(this.dataJson).length > 0) {
         this.service.addUpdateEventDetails(
           this.environment,
           this.trackerId,
           this.status,
           this.dataJson,
+          this.event,
           this.responseMsg,
           this.serviceConsumerKey,
-          this.conformationId,
-          this.transactionRawJson,
-          this.eventGroupId
+
+          this.transactionRawJson
         );
         this.json = this.service.getjsonupdateeventdetails();
-     
-      }
-      else
-      {
-
+      } else {
         this.service.withoutDataJsonUED(
           this.environment,
           this.trackerId,
           this.status,
+          this.event,
+
           this.responseMsg,
           this.serviceConsumerKey,
-          this.conformationId,
-          this.transactionRawJson,
-          this.eventGroupId
-          );
-          this.json = this.service.withoutDataJsongetUED();
 
+          this.transactionRawJson
+        );
+        this.json = this.service.withoutDataJsongetUED();
       }
-      
-
     }
-
 
     // this.service.addUpdateEventDetails(
     //   this.environment,
@@ -117,15 +101,13 @@ export class UpdateEventsDetailsComponent implements OnInit {
     //   this.eventGroupId
     // );
 
-   
-    console.log(this.json)
-    this.dataJson="";
-    this.responseMsg="";
-    this.serviceConsumerKey="";
-    this.conformationId="";
-    this.eventGroupId="";
-    this.transactionRawJson="";
-
+    console.log(this.json);
+    this.dataJson = "";
+    this.responseMsg = "";
+    this.serviceConsumerKey = "";
+    this.conformationId = "";
+    this.event = "";
+    this.transactionRawJson = "";
 
     this.hideResponse = false;
     this.hidedataJson = false;
@@ -133,89 +115,50 @@ export class UpdateEventsDetailsComponent implements OnInit {
     this.hideconformationId = false;
     this.hidetransactionRawJson = false;
     this.hideeventGroupId = false;
-
   }
 
-  copyInputMessage(inputElement){
+  copyInputMessage(inputElement) {
     inputElement.select();
-    document.execCommand('copy');
+    document.execCommand("copy");
     inputElement.setSelectionRange(0, 0);
   }
 
-
-  onAddMore()
-  {
-    
-  this.hidedataJson= true;
-  this.hideResponse = true;
-  this.hideserviceConsumerKey=true;
-  this.hideconformationId=true;
-  this.hidetransactionRawJson=true;
-  this.hideeventGroupId=true;
-
+  onAddMore() {
+    this.hidedataJson = true;
+    this.hideResponse = true;
+    this.hideserviceConsumerKey = true;
+    this.hideconformationId = true;
+    this.hidetransactionRawJson = true;
+    this.hideeventGroupId = true;
   }
 
-  clear(form2) 
-  {
-
+  clear(form2) {
     form2.reset();
-
   }
 
-
-  hide_data() 
-  {
+  hide_data() {
     this.hidedataJson = false;
     this.dataJson = "";
-   
-   
   }
   hide_res() {
     this.hideResponse = false;
     this.responseMsg = "";
-    
-   
   }
-  
-  hide_serviceConsumerKey()
-  {
+
+  hide_serviceConsumerKey() {
     this.hideserviceConsumerKey = false;
     this.serviceConsumerKey = "";
-   
-   
-
   }
-  hide_conformationId()
-  {
+  hide_conformationId() {
     this.hideconformationId = false;
     this.conformationId = "";
-   
-
-
   }
-  hide_transactionRawJson()
-  {
-    this.hidetransactionRawJson=false;
-    this.transactionRawJson= "";
-   
-   
-
-
+  hide_transactionRawJson() {
+    this.hidetransactionRawJson = false;
+    this.transactionRawJson = "";
   }
-  hide_eventGroupId()
-  {
-    this.hideeventGroupId= false;
-    this.eventGroupId= "";
-   
-    
-
+  hide_eventGroupId() {
+    this.hideeventGroupId = false;
+    this.event = "";
   }
-
-
-
-
-
-
-
-
 }

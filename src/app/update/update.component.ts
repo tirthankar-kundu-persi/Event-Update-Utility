@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { UpdateService } from "../update.service";
-import { environment } from "../../environments/environment.prod";
 
 @Component({
   selector: "app-update",
@@ -25,43 +24,25 @@ export class UpdateComponent implements OnInit {
 
   ngOnInit(): void {}
   onAdd(env, id, status) {
-    
     this.environment = env;
     this.trackerId = id;
     this.status = status.toUpperCase();
 
-    if(this.groupId=="")
-    this.groupId=0;
+    if (this.groupId == "") this.groupId = 0;
 
-    if(!this.hideData)
-    {
+    this.service.add(
+      this.environment,
+      this.trackerId,
+      this.status,
+      this.dataJson,
+      this.responseMsg,
+      this.groupId
+    );
+    this.json = this.service.getjson();
 
-      this.service.withoutDatajson(this.environment,this.trackerId,this.status,this.responseMsg,this.groupId);
-      this.json = this.service.getwithoutDatajson();
-    }
-    else
-    {
-      if(String(this.dataJson).length>0)
-      {
-      this.service.add(this.environment,this.trackerId,this.status,this.dataJson,this.responseMsg,this.groupId);
-      this.json = this.service.getjson();
-      }
-      else
-      {
-      this.service.withoutDatajson(this.environment,this.trackerId,this.status,this.responseMsg,this.groupId);
-      this.json = this.service.getwithoutDatajson();
-
-
-      }
-      
-
-    }
-    // this.entries = this.service.get();
-    // this.json = this.service.getjson();
-    // this.add = false;
-    this.dataJson="";
-    this.responseMsg="";
-    this.groupId="";
+    this.dataJson = "";
+    this.responseMsg = "";
+    this.groupId = "";
     this.hideGroup = false;
     this.hideResponse = false;
     this.hideData = false;
@@ -77,36 +58,22 @@ export class UpdateComponent implements OnInit {
   }
 
   hide_data() {
-    // this.add = false;
-    // this.hideGroup = false;
-    // this.hideResponse = false;
     this.hideData = false;
     this.dataJson = "";
   }
   hide_res() {
-    // this.add = false;
-    // this.hideGroup = false;
     this.hideResponse = false;
     this.responseMsg = "";
-    // this.hideData = false;
   }
   hide_group() {
-    // group.reset();
-    // console.log(group.value);
-    // this.add = false;
     this.groupId = "";
 
     this.hideGroup = false;
-
-    // this.hideResponse = false;
-    // this.hideData = false;
   }
 
-  copyInputMessage(inputElement){
+  copyInputMessage(inputElement) {
     inputElement.select();
-    document.execCommand('copy');
+    document.execCommand("copy");
     inputElement.setSelectionRange(0, 0);
   }
-  
-
 }
