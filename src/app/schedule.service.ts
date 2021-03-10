@@ -16,6 +16,6 @@ export class ScheduleService {
   // }
 
   getjson(): {} {
-    return JSON.stringify(this.entry);
+    return JSON.stringify(this.entry, null, "\t");
   }
 }
