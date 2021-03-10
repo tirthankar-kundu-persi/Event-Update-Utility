@@ -21,51 +21,60 @@ export class UpdateService {
 
   constructor() {}
 
-  add(env, track, status, data, response, group) {
-    this.entry.push(new Update(env, track, status));
-
-  }
-
-  get(): Update[] {
+  add(env, track, status, data, response, group)
+   {
+     this.enviroment=env;
+    console.log(typeof track)
     this.trackArr= track.split(",");
     console.log(this.trackArr)
-    this.enviroment=env;
-    
     for(let i=0;i<this.trackArr.length;i++)
     {
       if(env=="Dev")
      {
-      this.jsonDev.push(new Details(Number(this.trackArr[i]),status));
+      this.jsonDev.push(new Details(Number(this.trackArr[i]),status,data,response,group));
      }
      else if(env=="qa")
      {
-      this.jsonQa.push(new Details(Number(this.trackArr[i]),status));
+      this.jsonQa.push(new Details(Number(this.trackArr[i]),status,data,response,group));
 
      }
      else if(env=="uat")
      {
-      this.jsonUat.push(new Details(Number(this.trackArr[i]),status));
+      this.jsonUat.push(new Details(Number(this.trackArr[i]),status,data,response,group));
  
  
      }
      else if(env=="prod")
     {
-      this.jsonProd.push(new Details(Number(this.trackArr[i]),status));
+      this.jsonProd.push(new Details(Number(this.trackArr[i]),status,data,response,group));
     }   
      
 
 
     
     }
-    // this.json.push(new Details(track,status));
+     
+
+    // this.entry.push(new Update(env, track, status));
+
   }
 
-  get():Update[]{
+  // get(): Update[] {
+   
+  //   console.log(this.trackArr)
+  //   this.enviroment=env;
+    
+    
+  //   // this.json.push(new Details(track,status));
+  // }
+
+  // get():Update[]{
   
-    return this.entry;
-  }
+  //   return this.entry;
+  // }
   getjson(): {} 
   {
+    
     if(this.enviroment=="Dev")
     {
      this.result= this.jsonDev    
@@ -84,8 +93,8 @@ export class UpdateService {
     {
       this.result=this.jsonProd
     } 
-       
-    
+    console.log(this.result)
     return JSON.stringify(this.result,null,4);
   }
+
 }

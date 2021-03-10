@@ -11,7 +11,6 @@ export class UpdateComponent implements OnInit {
   environment = "";
   trackerId;
   status = "";
-
   json;
   entries;
   dataJson;
@@ -26,12 +25,11 @@ export class UpdateComponent implements OnInit {
 
   ngOnInit(): void {}
   onAdd(env, id, status) {
-    // console.log(env, id, status);
-    // console.log(typeof id);
+    
     this.environment = env;
-    this.trackerId = Number(id);
+    this.trackerId = id;
     this.status = status;
-    // this.table = true;
+    
 
     this.service.add(
       this.environment,
@@ -42,8 +40,9 @@ export class UpdateComponent implements OnInit {
       this.groupId
     );
 
-    this.entries = this.service.get();
+    // this.entries = this.service.get();
     this.json = this.service.getjson();
+    console.log(this.json)
     // this.add = false;
     this.hideGroup = false;
     this.hideResponse = false;

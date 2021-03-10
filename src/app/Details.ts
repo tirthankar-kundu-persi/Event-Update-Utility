@@ -10,7 +10,8 @@ export class Details {
     dataJson: string = "",
     responseMessage: string = "",
     groupId: number = 0
-  ) {
+  ) 
+  {
     this.trackerId = trackid;
     this.status = status;
     this.dataJson = dataJson;
