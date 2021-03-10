@@ -1,6 +1,6 @@
 export class Update {
   // environment: string;
-  trackerId:number;
+  detailsTrackerId:number;
   status: string;
   dataJson:string;
   responseMsg:string;
@@ -10,9 +10,9 @@ export class Update {
   eventGroupId:number;
 
 
-  constructor(trackerId:number, status: string,dataJson:string="",responseMsg:string="",serviceConsumerKey:string="",conformationId:string="",transactionRawJson:string="",eventGroupId:number=0) {
+  constructor(detailsTrackerId:number, status: string,dataJson:string="",responseMsg:string="",serviceConsumerKey:string="",conformationId:string="",transactionRawJson:string="",eventGroupId:number=0) {
     // this.environment = environment;
-    this.trackerId = trackerId;
+    this.detailsTrackerId = detailsTrackerId;
     this.status = status;
     this.dataJson=dataJson;
     this.responseMsg=responseMsg;

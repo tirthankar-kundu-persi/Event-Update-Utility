@@ -1,7 +1,7 @@
 <div class="container">
-  <form #form2>
+  
     <div class="container mt-5">
-      <form>
+      <form #form2>
         <div class="form-group row justify-content-center">
           <label for="evnviornment" class="col-sm-2 col-form-label"
             >Environment</label
@@ -197,9 +197,9 @@
             style="margin: 2px"
             class="btn btn-primary col-2"
             (click)="
-              onAdd(environment.value, trackingId.value, Status.value);
-              clear(form2)
-            "
+              onAdd(environment.value, trackingId.value, Status.value);"
+            (click)="clear(form2)"
+
           >
             Update
           </button>
@@ -223,5 +223,5 @@
         </div>
       </form>
     </div>
-  </form>
+  
 </div>

@@ -28,8 +28,8 @@ export class UpdateComponent implements OnInit {
     
     this.environment = env;
     this.trackerId = id;
-    this.status = status;
-    
+    this.status = status.toUpperCase();
+
     if(this.groupId=="")
     this.groupId=0;
     

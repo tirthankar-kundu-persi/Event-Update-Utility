@@ -41,7 +41,7 @@ export class UpdateEventsDetailsComponent implements OnInit {
   onAdd(env, id, status) {
     this.environment = env;
     this.trackerId =id;
-    this.status = status;
+    this.status = status.toUpperCase();
     
 
    if(this.eventGroupId=="")
@@ -97,8 +97,11 @@ export class UpdateEventsDetailsComponent implements OnInit {
 
   }
 
-  clear(form2) {
+  clear(form2) 
+  {
+
     form2.reset();
+
   }
 
 
