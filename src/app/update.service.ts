@@ -1,11 +1,14 @@
 import { Injectable } from "@angular/core";
 import { Update } from "./update/update";
-import {Details} from "./Details";
+import { Details } from "./Details";
 @Injectable({
   providedIn: "root",
 })
 export class UpdateService {
   entry: Update[] = [];
+
+
+
   json:Details[]=[]
   jsonDev:Details[]=[]
   jsonQa:Details[]=[]
@@ -15,10 +18,15 @@ export class UpdateService {
   result;
   enviroment;
 
- 
+
   constructor() {}
-  add(env, track, status) {
+
+  add(env, track, status, data, response, group) {
     this.entry.push(new Update(env, track, status));
+
+  }
+
+  get(): Update[] {
     this.trackArr= track.split(",");
     console.log(this.trackArr)
     this.enviroment=env;
@@ -53,7 +61,7 @@ export class UpdateService {
   }
 
   get():Update[]{
-   
+  
     return this.entry;
   }
   getjson(): {} 
@@ -80,7 +88,4 @@ export class UpdateService {
     
     return JSON.stringify(this.result,null,4);
   }
-
-
-
 }
