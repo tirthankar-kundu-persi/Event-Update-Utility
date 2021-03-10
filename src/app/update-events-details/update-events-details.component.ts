@@ -27,6 +27,8 @@ export class UpdateEventsDetailsComponent implements OnInit {
   conformationId;
   transactionRawJson;
   eventGroupId;
+  trackerArray=[];
+  result;
   add = false;
   hideResponse = false;
   hidedataJson= false;
@@ -42,24 +44,80 @@ export class UpdateEventsDetailsComponent implements OnInit {
     this.environment = env;
     this.trackerId =id;
     this.status = status.toUpperCase();
-    
+
 
    if(this.eventGroupId=="")
     this.eventGroupId=0;
-
-    this.service.addUpdateEventDetails(
+    
+    if(!this.hidedataJson)
+    {
+      this.service.withoutDataJsonUED(
       this.environment,
       this.trackerId,
       this.status,
-      this.dataJson,
       this.responseMsg,
       this.serviceConsumerKey,
       this.conformationId,
       this.transactionRawJson,
       this.eventGroupId
-    );
+      );
+      this.json = this.service.withoutDataJsongetUED();
 
-    this.json = this.service.getjsonupdateeventdetails();
+    
+    }
+    else
+    {
+      if(String(this.dataJson).length>0)
+      {
+       
+        this.service.addUpdateEventDetails(
+          this.environment,
+          this.trackerId,
+          this.status,
+          this.dataJson,
+          this.responseMsg,
+          this.serviceConsumerKey,
+          this.conformationId,
+          this.transactionRawJson,
+          this.eventGroupId
+        );
+        this.json = this.service.getjsonupdateeventdetails();
+     
+      }
+      else
+      {
+
+        this.service.withoutDataJsonUED(
+          this.environment,
+          this.trackerId,
+          this.status,
+          this.responseMsg,
+          this.serviceConsumerKey,
+          this.conformationId,
+          this.transactionRawJson,
+          this.eventGroupId
+          );
+          this.json = this.service.withoutDataJsongetUED();
+
+      }
+      
+
+    }
+
+
+    // this.service.addUpdateEventDetails(
+    //   this.environment,
+    //   this.trackerId,
+    //   this.status,
+    //   this.dataJson,
+    //   this.responseMsg,
+    //   this.serviceConsumerKey,
+    //   this.conformationId,
+    //   this.transactionRawJson,
+    //   this.eventGroupId
+    // );
+
+   
     console.log(this.json)
     this.dataJson="";
     this.responseMsg="";

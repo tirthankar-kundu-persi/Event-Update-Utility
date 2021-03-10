@@ -32,19 +32,32 @@ export class UpdateComponent implements OnInit {
 
     if(this.groupId=="")
     this.groupId=0;
-    
 
-    this.service.add(
-      this.environment,
-      this.trackerId,
-      this.status,
-      this.dataJson,
-      this.responseMsg,
-      this.groupId
-    );
+    if(!this.hideData)
+    {
 
+      this.service.withoutDatajson(this.environment,this.trackerId,this.status,this.responseMsg,this.groupId);
+      this.json = this.service.getwithoutDatajson();
+    }
+    else
+    {
+      if(String(this.dataJson).length>0)
+      {
+      this.service.add(this.environment,this.trackerId,this.status,this.dataJson,this.responseMsg,this.groupId);
+      this.json = this.service.getjson();
+      }
+      else
+      {
+      this.service.withoutDatajson(this.environment,this.trackerId,this.status,this.responseMsg,this.groupId);
+      this.json = this.service.getwithoutDatajson();
+
+
+      }
+      
+
+    }
     // this.entries = this.service.get();
-    this.json = this.service.getjson();
+    // this.json = this.service.getjson();
     // this.add = false;
     this.dataJson="";
     this.responseMsg="";
