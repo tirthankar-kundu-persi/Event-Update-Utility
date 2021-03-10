@@ -132,7 +132,13 @@
       style="width: 45%; margin: auto"
     >
       <label for="json"><strong>JSON file</strong> </label>
-      <textarea class="form-control" rows="10" #jsondata>{{ json }}</textarea>
+      <textarea
+        class="form-control"
+        rows="10"
+        #jsondata
+        style="padding-left: 35%"
+        >{{ json }}</textarea
+      >
       <button
         (click)="copyInputMessage(jsondata)"
         value="click to copy"
