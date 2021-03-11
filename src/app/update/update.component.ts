@@ -29,16 +29,61 @@ export class UpdateComponent implements OnInit {
     this.status = status.toUpperCase();
 
     if (this.groupId == "") this.groupId = 0;
+    if (!this.dataJson) 
+    {
 
-    this.service.add(
-      this.environment,
-      this.trackerId,
-      this.status,
-      this.dataJson,
-      this.responseMsg,
-      this.groupId
-    );
-    this.json = this.service.getjson();
+      this.service.withoutDataJson(
+        this.environment,
+        this.trackerId,
+        this.status,
+        this.responseMsg,
+        this.groupId
+      );
+
+      this.json = this.service.getjson();
+    }
+    else
+    {
+
+      if (String(this.dataJson).length > 0) 
+      {
+      
+        this.service.add(
+          this.environment,
+          this.trackerId,
+          this.status,
+          this.dataJson,
+          this.responseMsg,
+          this.groupId
+        );
+        this.json = this.service.getjson();
+      } 
+      else 
+      {
+        this.service.withoutDataJson(
+          this.environment,
+          this.trackerId,
+          this.status,
+          this.responseMsg,
+          this.groupId
+        );
+        
+        this.json = this.service.getjson();
+      }
+
+
+
+
+
+
+    }
+
+  
+
+
+
+   
+    // this.json = this.service.getjson();
 
     this.dataJson = "";
     this.responseMsg = "";

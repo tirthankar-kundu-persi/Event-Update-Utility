@@ -58,8 +58,9 @@ export class UpdateEventsDetailsComponent implements OnInit {
 
         this.transactionRawJson
       );
-      this.json = this.service.withoutDataJsongetUED();
+      this.json = this.service.getjsonupdateeventdetails();
     } else {
+      
       if (String(this.dataJson).length > 0) {
         this.service.addUpdateEventDetails(
           this.environment,
@@ -85,21 +86,11 @@ export class UpdateEventsDetailsComponent implements OnInit {
 
           this.transactionRawJson
         );
-        this.json = this.service.withoutDataJsongetUED();
+        this.json = this.service.getjsonupdateeventdetails();
       }
     }
 
-    // this.service.addUpdateEventDetails(
-    //   this.environment,
-    //   this.trackerId,
-    //   this.status,
-    //   this.dataJson,
-    //   this.responseMsg,
-    //   this.serviceConsumerKey,
-    //   this.conformationId,
-    //   this.transactionRawJson,
-    //   this.eventGroupId
-    // );
+  
 
     console.log(this.json);
     this.dataJson = "";
