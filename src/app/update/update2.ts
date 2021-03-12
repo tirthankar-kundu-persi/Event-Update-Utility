@@ -1,8 +1,8 @@
-export class Update {
+export class Update2 {
   // environment: string;
   detailsTrackerId: number;
   status: string;
-  dataJson: string;
+  // dataJson:string;
   responseMsg: string;
   serviceConsumerKey: string;
 
@@ -12,9 +12,8 @@ export class Update {
   constructor(
     detailsTrackerId: number,
     status: string,
-    dataJson: string = "",
-    event: string,
     responseMsg: string = "",
+    event: string = "",
     serviceConsumerKey: string = "",
 
     transactionRawJson: string = ""
@@ -22,7 +21,7 @@ export class Update {
     // this.environment = environment;
     this.detailsTrackerId = detailsTrackerId;
     this.status = status;
-    this.dataJson = dataJson;
+    //   this.dataJson=dataJson;
     this.event = event;
 
     this.responseMsg = responseMsg;
